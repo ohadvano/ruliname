@@ -3,7 +3,7 @@ import { RuleMap } from './rules.js';
 const contentScriptId = 'rules_content_script';
 let rules = new RuleMap();
 
-chrome.storage.sync.get(['rulesJson'], items => {
+chrome.storage.local.get(['rulesJson'], items => {
     if (items.rulesJson == null) {
         return;
     }

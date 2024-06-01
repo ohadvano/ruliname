@@ -783,18 +783,6 @@ label[id$="_error_prompt"] {
   cursor: pointer;
 }
 
-.tab-about-author-email.theme-light {
-  color: black;
-}
-
-.tab-about-author-email.theme-dark {
-  color: white;
-}
-
-.tab-about-author-email:hover {
-  cursor: pointer;
-}
-
 /* SWAL theming */
 
 .swal-footer {

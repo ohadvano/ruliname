@@ -35,7 +35,7 @@ function trySaveRules(rulesMap, silence) {
         saveRules(rulesMap);
         let rulesJson = JSON.stringify(rulesEditor, null, 4);
 
-        chrome.storage.sync.set({ rulesJson }, () => {
+        chrome.storage.local.set({ rulesJson }, () => {
             if (silence) {
                 return;
             }
@@ -190,7 +190,7 @@ function refreshRulesEditor() {
 }
 
 function loadInitialSettings() {
-    chrome.storage.sync.get(['rulesJson'], items => {
+    chrome.storage.local.get(['rulesJson'], items => {
         trySaveRules(items.rulesJson, true);
     });
 }
@@ -257,7 +257,7 @@ function initImportButton() {
 
 function initExportButton(manifestData) {
     document.getElementById('tab-rules-settings-button-export').addEventListener('click', () => {
-        chrome.storage.sync.get(['rulesJson'], items => {
+        chrome.storage.local.get(['rulesJson'], items => {
             var date = new Date();
             var dateString =    `${date.getFullYear()}`
                              + `-${('0' + (date.getMonth() + 1)).slice(-2)}`
@@ -364,7 +364,7 @@ function initThemeSwitch() {
     const darkSwitch = document.getElementById('sidebar-theme-switch');
 
     function setTheme(name) {
-        chrome.storage.sync.set({ theme: name }, () => {});
+        chrome.storage.local.set({ theme: name }, () => {});
         darkSwitch.checked = name === 'dark';
         document.querySelectorAll('*').forEach(element => {
             element.classList.forEach(className => {
@@ -377,7 +377,7 @@ function initThemeSwitch() {
         });
     }
 
-    chrome.storage.sync.get(['theme'], items => {
+    chrome.storage.local.get(['theme'], items => {
         let theme;
         if (!items.theme) {
             theme = 'dark';
