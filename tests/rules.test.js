@@ -7,7 +7,7 @@ import { describe, beforeEach, it } from 'mocha';
 describe('RenameDefinition Tests', function() {
     it('should fail when missing type', function() {
         expect(() => { new RenameDefinition({}) })
-            .to.throw('Invalid rename definition: missing \'type\'');
+            .to.throw('Invalid renameasdasd definition: missing \'type\'');
     });
 
     it('should fail when type is not string', function() {
