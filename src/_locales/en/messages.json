@@ -1,0 +1,110 @@
+{
+    "sidebar_settings_label": {
+        "message": "Settings"
+    },
+    "sidebar_settings_rules_label": {
+        "message": "Rules"
+    },
+    "sidebar_settings_about_label": {
+        "message": "About"
+    },
+    "tab_rules_settings_label": {
+        "message": "Rules configuration"
+    },
+    "tab_rules_settings_description": {
+        "message": "Add or remove rules that will apply tabs title auto-renaming"
+    },
+    "tab_rules_settings_editor_header_label": {
+        "message": "Manage rules"
+    },
+    "tab_rules_settings_button_help": {
+        "message": "Help"
+    },
+    "tab_rules_settings_button_import": {
+        "message": "Import"
+    },
+    "tab_rules_settings_button_export": {
+        "message": "Export"
+    },
+    "tab_rules_settings_button_save": {
+        "message": "Save"
+    },
+    "tab_rules_settings_advanced_label": {
+        "message": "Advanced"
+    },
+    "tab_settings_rules_advanced_description": {
+        "message": "Modify the rules set in JSON format"
+    },
+    "tab_rules_settings_button_save_advanced": {
+        "message": "Save Advanced"
+    },
+    "tab_rules_settings_save_success": {
+        "message": "Success!"
+    },
+    "tab_rules_settings_save_success_message": {
+        "message": "Rules have been saved"
+    },
+    "tab_rules_settings_import_warning": {
+        "message": "Import settings from file? This will overwrite existing settings."
+    },
+    "tab_rules_settings_import_confirmation": {
+        "message": "Yes, import"
+    },
+    "tab_rules_setting_add_choose_name": {
+        "message": "Choose rule name:"
+    },
+    "tab_rules_setting_add_invalid_chosen_name": {
+        "message": "Invalid rule name"
+    },
+    "tab_rule_setting_match_pattern": {
+        "message": "Match pattern"
+    },
+    "tab_rule_setting_type_label": {
+        "message": "Type"
+    },
+    "tab_rule_setting_type_fixed": {
+        "message": "Fixed"
+    },
+    "tab_rule_setting_type_element_id": {
+        "message": "Element ID"
+    },
+    "tab_rule_setting_type_class_id": {
+        "message": "Class ID"
+    },
+    "tab_rule_setting_value_label": {
+        "message": "Value"
+    },
+    "tab_rule_setting_remove_rule_warning": {
+        "message": "Remove rule '$1'?"
+    },
+    "tab_rule_setting_remove_rule_confirmation": {
+        "message": "Yes, remove"
+    },
+    "tab_about_label": {
+        "message": "About"
+    },
+    "tab_about_copyright": {
+        "message": "Copyright © 2024 Ohad Vano"
+    },
+    "tab_about_github_link": {
+        "message": "Check out the project's open source repository"
+    },
+    "tab_about_author_email": {
+        "message": "ohadvano@gmail.com"
+    },
+    "tab_about_license_name": {
+        "message": "MIT License"
+    },
+    "tab_about_version_label": {
+        "message": "Version"
+    },
+    "popup_configurations_label": {
+        "message": "Configurations"
+    },
+    "popup_about_label": {
+        "message": "About"
+    },
+    "internal_error_invalid_rules": {
+        "message": "Internal error: invalid rules type"
+    }
+}

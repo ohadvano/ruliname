@@ -1,0 +1,57 @@
+body {
+    margin: 0px;
+}
+
+.popup {
+    width: 250px;
+    height: 50px;
+    padding: 15px;
+    background-color: #4b4b4b;
+    font-family: 'Segoe UI Variable Display', 'Segoe UI', 'Roboto', 'Arial';
+    text-align: left;
+    color: white;
+    font-size: 14px;
+}
+
+#popup-extension-icon {
+    content: url("/src/assets/ruliname-2-128x128.png");
+    height: 48px;
+    width: 48px;
+}
+
+#popup-extension-name {
+    font-size: 18px;
+}
+
+#popup-extension-name:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#popup-extension-version {
+    font-size: 18px;
+}
+
+.popup-configurations {
+    padding: 5px;
+}
+
+#popup-configurations-link {
+    text-decoration: underline;
+}
+
+#popup-configurations-link:hover {
+    cursor: pointer;
+}
+
+.popup-about {
+    padding: 5px;
+}
+
+#popup-about-link {
+    text-decoration: underline;
+}
+
+#popup-about-link:hover {
+    cursor: pointer;
+}

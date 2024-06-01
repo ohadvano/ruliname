@@ -1,0 +1,31 @@
+{
+    "name": "Ruliname",
+    "short_name": "Ruliname",
+    "version": "0.1.1",
+    "manifest_version": 3,
+    "default_locale": "en",
+    "description": "A Chromium extension that automatically renames tabs based on predefined rules",
+    "homepage_url": "https://github.com/ohadvano/ruliname",
+    "minimum_chrome_version": "96",
+    "icons": {
+        "16": "/assets/ruliname-2-16x16.png",
+        "32": "/assets/ruliname-2-32x32.png",
+        "48": "/assets/ruliname-2-48x48.png",
+        "128": "/assets/ruliname-2-128x128.png"
+    },
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "scripting",
+        "storage"
+    ],
+    "host_permissions": ["<all_urls>"],
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "options_page": "options.html"
+}

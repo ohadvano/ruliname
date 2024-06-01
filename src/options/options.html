@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title data-extension-name></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="options.css" />
+</head>
+<body>
+    <div>
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <table class="sidebar-header-table">
+                    <tr>
+                        <td class="sidebar-header-icon"><img id="sidebar-header-icon-img" /></td>
+                        <td class="sidebar-header-name"><p data-extension-name></p></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="sidebar-pages-nav">
+                <label class="sidebar-settings-label" data-locale="sidebar_settings_label"></label>
+                <ul class="sidebar-tabs">
+                    <li class="active sidebar-tab" data-tab-target="#tab-rules-settings">
+                        <div class="sidebar-tab-label">
+                            <div data-locale="sidebar_settings_rules_label"></div>
+                        </div>
+                    </li>
+                    <li class="sidebar-tab" data-tab-target="#tab-about">
+                        <div class="sidebar-tab-label">
+                            <div data-locale="sidebar_settings_about_label"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-theme">
+                <table class="sidebar-theme-table">
+                    <tr>
+                        <td><img id="sidebar-theme-light-img" /></td>
+                        <td>
+                            <label class="sidebar-theme-switch">
+                                <input type="checkbox" id="sidebar-theme-switch">
+                                <span class="sidebar-theme-slider"></span>
+                            </label>
+                        </td>
+                        <td><img id="sidebar-theme-night-img" /></td>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+
+        <div id="tab-rules-settings" data-tab-content class="active">
+            <table class="tab-header-table">
+                <tr>
+                    <td class="tab-rules-settings-icon">
+                        <img id="tab-rules-settings-icon" />
+                    </td>
+                    <td class="tab-rules-settings-label">
+                        <label data-locale="tab_rules_settings_label"></label>
+                    </td>
+                    <td>
+                        <div class="tab-rules-settings-button">
+                            <button type="button" id="tab-rules-settings-button-help" data-locale="tab_rules_settings_button_help"></button>
+                            <button type="button" id="tab-rules-settings-button-import" data-locale="tab_rules_settings_button_import"></button>
+                            <input type="file" id="tab-rules-settings-import-file-input">
+                            <button type="button" id="tab-rules-settings-button-export" data-locale="tab_rules_settings_button_export"></button>
+                            <button type="submit" id="tab-rules-settings-button-save" data-locale="tab_rules_settings_button_save" value="save"></button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="tab-rules-settings-description">
+                        <label data-locale="tab_rules_settings_description"></label>
+                    </td>
+                </tr>
+            </table>
+            <div class="tab-rules-settings-editor">
+                <table class="tab-rules-settings-editor-header-table">
+                    <tr>
+                        <td class="tab-rules-settings-editor-header-label"><label data-locale="tab_rules_settings_editor_header_label"></label></td>
+                        <td><img id="tab-rules-settings-editor-toggle-all" /></td>
+                        <td><img id="tab-rules-settings-editor-add" /></td>
+                    </tr>
+                </table>
+                <div id="tab-rules-settings-editor-rows"></div>
+            </div>
+            <div class="tab-rules-settings-advanced">
+                <table class="tab-rules-settings-advanced-editor-table">
+                    <tr>
+                        <td class="tab-rules-settings-advanced-editor-label">
+                            <label id="tab-rules-settings-advanced-editor-label-data" data-locale="tab_rules_settings_advanced_label"></label>
+                        </td>
+                        <td><img id="tab-rules-settings-advanced-editor-toggle" /></td>
+                    </tr>
+                </table>
+                <table id="tab-rules-settings-advanced-editor">
+                    <tr>
+                        <td class="tab-rules-settings-advanced-description"><label data-locale="tab_settings_rules_advanced_description"></label></td>
+                        <td><button type="submit" id="tab-rules-settings-button-save-advanced" data-locale="tab_rules_settings_button_save_advanced"></button></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="tab-rules-settings-advanced-input">
+                            <textarea id="rules-advanced-input"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="tab-rules-settings-advanced-input-result">
+                            <label id="tab-rules-settings-advanced-input-result"></label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="tab-about" data-tab-content>
+            <table class="tab-header-table">
+                <tr>
+                    <td class="tab-about-icon">
+                        <img id="tab-about-icon" />
+                    </td>
+                    <td class="tab-about-label">
+                        <label data-locale="tab_about_label"></label>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="tab-about-content-table">
+                <tr><td><label data-extension-name></label></td></tr>
+                <tr>
+                    <td><label data-locale="tab_about_version_label"></label></td>
+                    <td><section data-extension-version></section></td>
+                </tr>
+                <tr>
+                    <td><label data-locale="tab_about_copyright"></label></td>
+                    <td>
+                        <a href="https://github.com/ohadvano/ruliname#mit-license" class="tab-about-license-link" target="_blank">
+                            <section data-locale="tab_about_license_name"></section>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="https://github.com/ohadvano/ruliname" class="tab-about-github-link" target="_blank">
+                            <section data-locale="tab_about_github_link"></section>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="mailto:email@example.com" class="tab-about-author-email">
+                            <section data-locale="tab_about_author_email"></section>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script type="module" src="options.js"></script>
+</body>
+</html>
