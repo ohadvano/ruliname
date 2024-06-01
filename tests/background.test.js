@@ -6,7 +6,7 @@ describe('Test extension background service', () => {
     beforeEach(async () => {
         globalThis.chrome = {
             storage: {
-                sync: {
+                local: {
                     get: sinon.stub(),
                 },
                 onChanged: {
