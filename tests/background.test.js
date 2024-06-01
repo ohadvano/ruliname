@@ -37,13 +37,13 @@ describe('Test extension background service', () => {
     }
 
     it('should not register when rules are null', async () => {
-        chrome.storage.sync.get.yields({ rulesJson: null });
+        chrome.storage.local.get.yields({ rulesJson: null });
         await importBackgroundScript();
         expect(chrome.scripting.getRegisteredContentScripts.notCalled).to.be.true;
     });
 
     it('should not register when rules are empty', async () => {
-        chrome.storage.sync.get.yields({ rulesJson: '{}' });
+        chrome.storage.local.get.yields({ rulesJson: '{}' });
         await importBackgroundScript();
         expect(chrome.scripting.getRegisteredContentScripts.notCalled).to.be.true;
     });
@@ -59,7 +59,7 @@ describe('Test extension background service', () => {
             },
         });
 
-        chrome.storage.sync.get.yields({ rulesJson });
+        chrome.storage.local.get.yields({ rulesJson });
         chrome.scripting.getRegisteredContentScripts.yields([]);
         await importBackgroundScript();
 
@@ -90,7 +90,7 @@ describe('Test extension background service', () => {
             },
         });
 
-        chrome.storage.sync.get.yields({ rulesJson });
+        chrome.storage.local.get.yields({ rulesJson });
         chrome.scripting.getRegisteredContentScripts.yields([]);
         await importBackgroundScript();
 
@@ -114,7 +114,7 @@ describe('Test extension background service', () => {
             },
         });
 
-        chrome.storage.sync.get.yields({ rulesJson });
+        chrome.storage.local.get.yields({ rulesJson });
         chrome.scripting.getRegisteredContentScripts.yields(['rules_content_script']);
         await importBackgroundScript();
 
@@ -162,7 +162,7 @@ describe('Test extension background service', () => {
         });
 
         const listenerStub = chrome.tabs.onUpdated.addListener;
-        chrome.storage.sync.get.yields({ rulesJson });
+        chrome.storage.local.get.yields({ rulesJson });
         chrome.scripting.getRegisteredContentScripts.yields([]);
         await importBackgroundScript();
 
