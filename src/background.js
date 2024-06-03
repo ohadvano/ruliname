@@ -28,7 +28,8 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     if (rule) {
         chrome.tabs.sendMessage(tabId, {
             type: rule.renameDefinition.type,
-            value: rule.renameDefinition.value
+            value: rule.renameDefinition.value,
+            timeout: 15000,
         });
     }
 });

@@ -36,94 +36,114 @@ describe('Test title rename content script', () => {
         addListenerCallback = chrome.runtime.onMessage.addListener.getCall(0).args[0];
     });
 
-    it('should respond with fail on unsupported type', () => {
-        const renameDefinition = { type: 'UnsupportedType', value: 'Unsupported Value' };
+    it('should respond with fail on unsupported type', (done) => {
+        const renameRequest = {
+            type: 'UnsupportedType',
+            value: 'Unsupported Value',
+            timeout: 10
+        };
+
         const sendResponse = sinon.spy();
 
-        addListenerCallback(renameDefinition, null, sendResponse);
-        expect(sendResponse.calledWith({ result: 'fail' })).to.be.true;
+        addListenerCallback(renameRequest, null, sendResponse);
+        setTimeout(() => {
+            expect(sendResponse.calledWith({ result: 'fail' })).to.be.true;
+            done();
+        }, 20);
     });
 
-    it('should set document.title to a fixed value', () => {
-        const renameDefinition = { type: RuleType.Fixed, value: 'FixedTitle' };
+    it('should set document.title to a fixed value', (done) => {
+        const renameRequest = { type: RuleType.Fixed, value: 'FixedTitle', timeout: 10 };
         const sendResponse = sinon.spy();
 
-        addListenerCallback(renameDefinition, null, sendResponse);
-
-        expect(document.title).to.equal('FixedTitle');
-        expect(sendResponse.calledWith({ result: 'ok' })).to.be.true;
+        addListenerCallback(renameRequest, null, sendResponse);
+        setTimeout(() => {
+            expect(document.title).to.equal('FixedTitle');
+            expect(sendResponse.calledWith({ result: 'ok' })).to.be.true;
+            done();
+        }, 20);
     });
 
-    it('should set document.title to element ID content', () => {
+    it('should set document.title to element ID content', (done) => {
         const element = document.createElement('div');
         element.id = 'elementId';
         element.innerHTML = 'ElementIDTitle';
         document.body.appendChild(element);
 
-        const renameDefinition = { type: RuleType.ElementId, value: 'elementId' };
+        const renameRequest = { type: RuleType.ElementId, value: 'elementId', timeout: 10 };
         const sendResponse = sinon.spy();
 
-        addListenerCallback(renameDefinition, null, sendResponse);
-
-        expect(document.title).to.equal('ElementIDTitle');
-        expect(sendResponse.calledWith({ result: 'ok' })).to.be.true;
+        addListenerCallback(renameRequest, null, sendResponse);
+        setTimeout(() => {
+            expect(document.title).to.equal('ElementIDTitle');
+            expect(sendResponse.calledWith({ result: 'ok' })).to.be.true;
+            done();
+        }, 20);
     });
 
-    it('should fail when element ID does not exist', () => {
+    it('should fail when element ID does not exist', (done) => {
         const element = document.createElement('div');
         element.id = 'elementId';
         element.innerHTML = 'ElementIDTitle';
         document.body.appendChild(element);
 
-        const renameDefinition = { type: RuleType.ElementId, value: 'invalidId' };
+        const renameRequest = { type: RuleType.ElementId, value: 'invalidId', timeout: 10 };
         const sendResponse = sinon.spy();
 
-        addListenerCallback(renameDefinition, null, sendResponse);
-        expect(sendResponse.calledWith({ result: 'fail' })).to.be.true;
+        addListenerCallback(renameRequest, null, sendResponse);
+        setTimeout(() => {
+            expect(sendResponse.calledWith({ result: 'fail' })).to.be.true;
+            done();
+        }, 20);
     });
 
-    it('should set document.title to class content', () => {
+    it('should set document.title to class content', (done) => {
         const element = document.createElement('div');
         element.className = 'classId';
         element.innerHTML = 'Class ID Title';
         document.body.appendChild(element);
 
-        const renameDefinition = { type: RuleType.ClassId, value: 'classId' };
+        const renameRequest = { type: RuleType.ClassId, value: 'classId', timeout: 10 };
         const sendResponse = sinon.spy();
 
-        addListenerCallback(renameDefinition, null, sendResponse);
-
-        expect(document.title).to.equal('Class ID Title');
-        expect(sendResponse.calledWith({ result: 'ok' })).to.be.true;
+        addListenerCallback(renameRequest, null, sendResponse);
+        setTimeout(() => {
+            expect(document.title).to.equal('Class ID Title');
+            expect(sendResponse.calledWith({ result: 'ok' })).to.be.true;
+            done();
+        }, 20);
     });
 
-    it('should fail when class ID is invalid', () => {
+    it('should fail when class ID is invalid', (done) => {
         const element = document.createElement('div');
         element.className = 'classId';
         element.innerHTML = 'Class ID Title';
         document.body.appendChild(element);
 
-        const renameDefinition = { type: RuleType.ClassId, value: 'invalidClass' };
+        const renameRequest = { type: RuleType.ClassId, value: 'invalidClass', timeout: 10 };
         const sendResponse = sinon.spy();
 
-        addListenerCallback(renameDefinition, null, sendResponse);
-        expect(sendResponse.calledWith({ result: 'fail' })).to.be.true;
+        addListenerCallback(renameRequest, null, sendResponse);
+        setTimeout(() => {
+            expect(sendResponse.calledWith({ result: 'fail' })).to.be.true;
+            done();
+        }, 20);
     });
 
     it('should update document.title when the title element is mutated', (done) => {
-        const renameDefinition = { type: RuleType.Fixed, value: 'Observed Title' };
+        const renameRequest = { type: RuleType.Fixed, value: 'Observed Title', timeout: 10 };
         const sendResponse = sinon.spy();
 
-        addListenerCallback(renameDefinition, null, sendResponse);
+        addListenerCallback(renameRequest, null, sendResponse);
 
-        expect(document.title).to.equal('Observed Title');
-        expect(sendResponse.calledWith({ result: 'ok' })).to.be.true;
+        setTimeout(() => {
+            expect(document.title).to.equal('Observed Title');
+            expect(sendResponse.calledWith({ result: 'ok' })).to.be.true;
+        }, 100);
 
-        // Simulate a mutation in the title element
         const titleElement = document.querySelector('title');
         titleElement.textContent = 'New Mutated Title';
 
-        // Use a small timeout to allow the MutationObserver to react
         setTimeout(() => {
             expect(document.title).to.equal('Observed Title');
             done();

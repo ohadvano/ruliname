@@ -8,7 +8,7 @@
 </p>
 <br />
 <p align="center">
-Install Ruliname: <a href="todo">Microsoft Edge</a> | <a href="todo">Google Chrome</a>
+Install Ruliname: <a href="todo">Microsoft Edge</a> | <a href="https://chromewebstore.google.com/detail/ruliname/hdccmjlkfjhjedgoeckpalmlabdcmfeo">Google Chrome</a>
 <br /><br />
 </p>
 

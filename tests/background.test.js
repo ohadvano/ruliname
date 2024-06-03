@@ -174,7 +174,6 @@ describe('Test extension background service', () => {
             js: ["content.js"],
         }])).to.be.true;
 
-
         expect(listenerStub.calledOnce).to.be.true;
 
         const callback = listenerStub.getCall(0).args[0];
@@ -185,6 +184,7 @@ describe('Test extension background service', () => {
         expect(chrome.tabs.sendMessage.calledOnceWithExactly("tabId", {
             type: "fixed",
             value: "val",
+            timeout: 15000,
         })).to.be.true;
     });
 });
