@@ -1,3 +1,4 @@
+import 'urlpattern-polyfill';
 import { RuleType } from './consts.js';
 
 export class RenameDefinition {
