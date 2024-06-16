@@ -130,6 +130,43 @@ describe('Test title rename content script', () => {
         }, 20);
     });
 
+    it('should set document.title to custom query content', (done) => {
+        const element = document.createElement('div');
+        element.id = 'customId';
+
+        const childElement = document.createElement('h2');
+        childElement.innerHTML = 'Custom Query Title';
+        element.appendChild(childElement);
+
+        document.body.appendChild(element);
+
+        const renameRequest = { type: RuleType.CustomQuery, value: '#customId h2', timeout: 10 };
+        const sendResponse = sinon.spy();
+
+        addListenerCallback(renameRequest, null, sendResponse);
+        setTimeout(() => {
+            expect(document.title).to.equal('Custom Query Title');
+            expect(sendResponse.calledWith({ result: 'ok' })).to.be.true;
+            done();
+        }, 20);
+    });
+
+    it('should fail when custom query is invalid', (done) => {
+        const element = document.createElement('div');
+        element.className = 'classId';
+        element.innerHTML = 'Custom Query Title';
+        document.body.appendChild(element);
+
+        const renameRequest = { type: RuleType.CustomQuery, value: 'invalid query', timeout: 10 };
+        const sendResponse = sinon.spy();
+
+        addListenerCallback(renameRequest, null, sendResponse);
+        setTimeout(() => {
+            expect(sendResponse.calledWith({ result: 'fail' })).to.be.true;
+            done();
+        }, 20);
+    });
+
     it('should update document.title when the title element is mutated', (done) => {
         const renameRequest = { type: RuleType.Fixed, value: 'Observed Title', timeout: 10 };
         const sendResponse = sinon.spy();

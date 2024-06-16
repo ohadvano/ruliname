@@ -73,6 +73,7 @@ function getRuleBlock(ruleId) {
                     <option value="${RuleType.Fixed}">${chrome.i18n.getMessage('tab_rule_setting_type_fixed')}</option>
                     <option value="${RuleType.ElementId}">${chrome.i18n.getMessage('tab_rule_setting_type_element_id')}</option>
                     <option value="${RuleType.ClassId}">${chrome.i18n.getMessage('tab_rule_setting_type_class_id')}</option>
+                    <option value="${RuleType.CustomQuery}">${chrome.i18n.getMessage('tab_rule_setting_type_custom_query')}</option>
                 </select>
             </td>
             <td class="rule-value-label">${chrome.i18n.getMessage('tab_rule_setting_value_label')}</td>

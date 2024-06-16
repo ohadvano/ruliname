@@ -42,6 +42,8 @@ function getRequestedElement(renameRequest) {
                     return document.getElementById(renameRequest.value);
                 case RuleType.ClassId:
                     return document.querySelector(`[class="${renameRequest.value}"]`);
+                case RuleType.CustomQuery:
+                        return document.querySelector(renameRequest.value);
                 default:
                     console.log(`Internal error: unsupported renameDefinition `
                                 + `'type': ${renameRequest.type}`);
