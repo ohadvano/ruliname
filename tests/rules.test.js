@@ -18,7 +18,7 @@ describe('RenameDefinition Tests', function() {
     it('should fail when rename type is invalid', function() {
         expect(() => { new RenameDefinition({ type: "type", value: "value" }) })
             .to.throw('Invalid argument: rename \'type\' can be one of \'fixed\','
-                      + ' \'element_id\' ,\'class_id\'');
+                      + ' \'element_id\', \'class_id\', \'custom_query\'');
     });
 
     it('should fail when missing value', function() {
@@ -51,6 +51,11 @@ describe('RenameDefinition Tests', function() {
         expect(r3.type).to.equal(RuleType.ClassId);
         expect(r3.value).to.equal("value");
         expect(r3.toJSON()).to.deep.equal( {type: RuleType.ClassId, value: "value" });
+
+        let r4 = new RenameDefinition({ type: RuleType.CustomQuery, value: "value" });
+        expect(r4.type).to.equal(RuleType.CustomQuery);
+        expect(r4.value).to.equal("value");
+        expect(r4.toJSON()).to.deep.equal( {type: RuleType.CustomQuery, value: "value" });
     });
 });
 

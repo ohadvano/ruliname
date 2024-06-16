@@ -71,6 +71,9 @@
     "tab_rule_setting_type_class_id": {
         "message": "Class ID"
     },
+    "tab_rule_setting_type_custom_query": {
+        "message": "Custom Query"
+    },
     "tab_rule_setting_value_label": {
         "message": "Value"
     },

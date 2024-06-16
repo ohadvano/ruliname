@@ -9,10 +9,11 @@ export class RenameDefinition {
         this.#verifyString(renameDefinition, 'type');
         if (renameDefinition.type !== RuleType.Fixed
                 && renameDefinition.type !== RuleType.ElementId
-                && renameDefinition.type !== RuleType.ClassId) {
+                && renameDefinition.type !== RuleType.ClassId
+                && renameDefinition.type !== RuleType.CustomQuery) {
             throw new Error(`Invalid argument: rename 'type' can be one of`
-                            + ` '${RuleType.Fixed}', '${RuleType.ElementId}'`
-                            + ` ,'${RuleType.ClassId}'`);
+                            + ` '${RuleType.Fixed}', '${RuleType.ElementId}',`
+                            + ` '${RuleType.ClassId}', '${RuleType.CustomQuery}'`);
         }
 
         this.#type = renameDefinition.type;
