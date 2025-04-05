@@ -13,10 +13,12 @@ describe('Test extension background service', () => {
                     addListener: sinon.stub(),
                 },
             },
-            tabs: {
-                onUpdated: {
+            runtime: {
+                onMessage: {
                     addListener: sinon.stub(),
                 },
+            },
+            tabs: {
                 sendMessage: sinon.stub(),
             },
             scripting: {
@@ -67,7 +69,7 @@ describe('Test extension background service', () => {
         expect(chrome.scripting.registerContentScripts.calledOnceWithExactly([{
             id: 'rules_content_script',
             matches: ["https://test.com/"],
-            runAt: "document_idle",
+            runAt: "document_start",
             js: ["content.js"],
         }])).to.be.true;
     });
@@ -98,7 +100,7 @@ describe('Test extension background service', () => {
         expect(chrome.scripting.registerContentScripts.calledOnceWithExactly([{
             id: 'rules_content_script',
             matches: ["https://test.com/", "https://test2.com/"],
-            runAt: "document_idle",
+            runAt: "document_start",
             js: ["content.js"],
         }])).to.be.true;
     });
@@ -161,7 +163,7 @@ describe('Test extension background service', () => {
             },
         });
 
-        const listenerStub = chrome.tabs.onUpdated.addListener;
+        const listenerStub = chrome.runtime.onMessage.addListener;
         chrome.storage.local.get.yields({ rulesJson });
         chrome.scripting.getRegisteredContentScripts.yields([]);
         await importBackgroundScript();
@@ -170,21 +172,34 @@ describe('Test extension background service', () => {
         expect(chrome.scripting.registerContentScripts.calledOnceWithExactly([{
             id: 'rules_content_script',
             matches: ["https://test.com/"],
-            runAt: "document_idle",
+            runAt: "document_start",
             js: ["content.js"],
         }])).to.be.true;
 
         expect(listenerStub.calledOnce).to.be.true;
 
         const callback = listenerStub.getCall(0).args[0];
-        callback("tabId", { status: 'not_complete' }, { url: "https://test.com/" });
-        callback("tabId", { status: 'complete' }, { url: "https://notregistered.com/" });
-        callback("tabId", { status: 'complete' }, { url: "https://test.com/" });
+
+        callback(
+            { type: 'unknown_type' },
+            { tab: { id: "tabId", url: "https://test.com/"}}
+        );
+        callback(
+            { type: 'ready_to_receive_rename_request' },
+            { tab: { id: "tabId", url: "https://notregistered.com/"}}
+        );
+        callback(
+            { type: 'ready_to_receive_rename_request' },
+            { tab: { id: "tabId", url: "https://test.com/"}}
+        );
 
         expect(chrome.tabs.sendMessage.calledOnceWithExactly("tabId", {
             type: "fixed",
             value: "val",
-            timeout: 15000,
+            attempts: 10,
+            interval: 1000,
+            observeTitleChanges: true,
+            maxTitleRenaming: 5,
         })).to.be.true;
     });
 });

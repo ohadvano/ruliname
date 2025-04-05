@@ -54,13 +54,14 @@ To set up a workspace, follow these steps:
 
 1. Clone the repository locally
 2. ``cd`` to the repository
-3. Run ``npm install`` - this will install dependency libraries.
-4. Run ``npm run build`` - build the extension. The artifacts will be ready in ``/dist`` folder.
-5. To test the extension, use 'Developer mode' in your browser extensions tab, and load the ``/dist`` folder as an unpacked extension.
-6. Optional: ``npm run watch`` - automatically listen to changes in the file system and rebuild the extension. Note - this does not automatically reloads the extension.
-7. Run ``npm run lint`` - runs ESLint to check for detectable errors.
-8. Run ``npm run test`` - runs unit tests and prints the output. This project uses ``Mocha`` as testing framework.
-9. Run ``npm run pack`` - packs the extension after build. This will produce a zip file ready to be published.
+3. Run ``npm update`` - this will update packages to newer versions.
+4. Run ``npm install`` - this will install dependency libraries.
+5. Run ``npm run build`` - build the extension. The artifacts will be ready in ``/dist`` folder.
+6. To test the extension, use 'Developer mode' in your browser extensions tab, and load the ``/dist`` folder as an unpacked extension.
+7. Optional: ``npm run watch`` - automatically listen to changes in the file system and rebuild the extension. Note - this does not automatically reloads the extension.
+8. Run ``npm run lint`` - runs ESLint to check for detectable errors.
+9. Run ``npm run test`` - runs unit tests and prints the output. This project uses ``Mocha`` as testing framework.
+10. Run ``npm run pack`` - packs the extension after build. This will produce a zip file ready to be published.
 
 ## Privacy policy
 
