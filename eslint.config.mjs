@@ -8,6 +8,7 @@ export default [
       ecmaVersion: 2022,
       sourceType: "module",
       globals: {
+          global: 'readonly',
           ...globals.browser,
           ...globals.es2021,
           ...globals.webextensions,
