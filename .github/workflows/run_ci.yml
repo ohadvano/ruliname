@@ -37,9 +37,9 @@ jobs:
       - name: Pack extension
         run: npm run pack
 
-      - name: Upload packed extension
-        uses: actions/upload-artifact@v3
-        with:
-          name: Ruliname
-          path: package/**/*.zip
-          if-no-files-found: error
+      # - name: Upload packed extension
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: Ruliname
+      #     path: package/**/*.zip
+      #     if-no-files-found: error
