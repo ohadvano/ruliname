@@ -38,7 +38,7 @@ jobs:
         run: npm run pack
 
       - name: Upload packed extension
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Ruliname
           path: package/**/*.zip
