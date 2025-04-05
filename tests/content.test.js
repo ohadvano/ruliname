@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import { JSDOM } from 'jsdom';
 import { RuleType } from '../src/consts.js';
-import { describe, before, beforeEach, it } from 'mocha';
+import { describe, before, beforeEach, afterEach, global, it } from 'mocha';
 
 describe('Test title rename content script', () => {
     let window;
