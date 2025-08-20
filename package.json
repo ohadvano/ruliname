@@ -1,6 +1,6 @@
 {
     "name": "ruliname",
-    "version": "0.1.6",
+    "version": "0.1.8",
     "description": "A Chromium extension that automatically renames tabs based on predefined rules",
     "type": "module",
     "scripts": {
